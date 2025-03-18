@@ -15,7 +15,6 @@ Database* Database::getInstance(const string& new_db, const string& new_username
     // Calling for the first time: this will set username and password
     if (instance == nullptr) 
     {
-        cout << "New Instance is Created" << endl;
         instance = new Database(new_db, new_username, new_password);
     }
     /* However, subsequent time, it matches the Database NAME, USERNAME, and PASSWORD
@@ -95,7 +94,7 @@ void Database::printInformation()
 
 void* Database::operator new(size_t size)
 {
-    cout << "Overloaded new" << endl;
+    cout << "overloaded new " << endl;
     void* ptr = malloc(sizeof(size));
 
     if (!ptr) throw bad_alloc();
@@ -104,6 +103,6 @@ void* Database::operator new(size_t size)
 
 void Database::operator delete(void* ptr)
 {
-    cout << "Overloaded delete" << endl;
+    cout << "overloaded delete " << endl;
     free(ptr);
 }
