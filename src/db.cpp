@@ -6,17 +6,17 @@ using namespace std;
 
 Database* Database::instance = nullptr;
 
-Database::Database(const string& db, const string& un, const string& pw, const bool& connected)
-    : db(db), username(un), password(pw), connected(false) {}
+Database::Database(const string& db, const string& un, const string& pw)
+    : db(db), username(un), password(pw) {}
 
 // Creates and returns the instance of the Database
-Database* Database::getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con)
+Database* Database::getInstance(const string& new_db, const string& new_username, const string& new_password)
 {
     // Calling for the first time: this will set username and password
     if (instance == nullptr) 
     {
         cout << "New Instance is Created" << endl;
-        instance = new Database(new_db, new_username, new_password, new_con);
+        instance = new Database(new_db, new_username, new_password);
     }
     /* However, subsequent time, it matches the Database NAME, USERNAME, and PASSWORD
     -> returns the previous instance */ 
