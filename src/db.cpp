@@ -10,7 +10,7 @@ Database::Database(const string& db, const string& un, const string& pw, const b
     : db(db), username(un), password(pw), connected(false) {}
 
 // Creates and returns the instance of the Database
-Database& Database::getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con)
+Database* Database::getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con)
 {
     // Calling for the first time: this will set username and password
     if (instance == nullptr) 
@@ -28,7 +28,7 @@ Database& Database::getInstance(const string& new_db, const string& new_username
         }
     }
 
-    return *instance;
+    return instance;
 }
 
 void Database::connect()

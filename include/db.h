@@ -19,7 +19,7 @@ private:
 
 public:
 	// Retrive the single instance of the object
-	static Database& getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con);
+	static Database* getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con);
 	// To prevent copying and assignment since there is no need for this application
 	Database(const Database&) = delete;
 	Database& operator=(const Database&) = delete;

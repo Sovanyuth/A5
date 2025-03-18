@@ -19,9 +19,9 @@ int main()
 
 	try 
 	{
-		Database& dbInstance1 = Database::getInstance(database1, username1, password1, connection1);
-		dbInstance1.printInformation();
-		Database& dbInstance2 = Database::getInstance(database2, username1, password1, connection1);
+		Database* dbInstance1 = Database::getInstance(database1, username1, password1, connection1);
+		dbInstance1->printInformation();
+		Database* dbInstance2 = Database::getInstance(database2, username1, password1, connection1);
 	}
 	catch (runtime_error& e) 
 	{
