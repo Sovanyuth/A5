@@ -4,13 +4,13 @@
 using namespace std;
 
 // Creating a class movie 
-class DataBase 
+class Database 
 {
 private:
 	// Constructor needs to be private, to prevent object creation
-	DataBase(const string& db, const string& un, const string& pw, const bool& connected);
-	~DataBase() {}
-	static DataBase* instance;
+	Database(const string& db, const string& un, const string& pw, const bool& connected);
+	~Database() {}
+	static Database* instance;
 
 	string db;
 	string username;
@@ -19,10 +19,10 @@ private:
 
 public:
 	// Retrive the single instance of the object
-	static DataBase& getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con);
+	static Database& getInstance(const string& new_db, const string& new_username, const string& new_password, const bool& new_con);
 	// To prevent copying and assignment since there is no need for this application
-	DataBase(const DataBase&) = delete;
-	DataBase& operator=(const DataBase&) = delete;
+	Database(const Database&) = delete;
+	Database& operator=(const Database&) = delete;
 
 	void connect();
 
