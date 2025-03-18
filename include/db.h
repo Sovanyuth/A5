@@ -9,7 +9,7 @@ class Database
 private:
 	// Constructor needs to be private, to prevent object creation
 	Database(const string& db, const string& un, const string& pw);
-	~Database() {}
+	~Database();
 	static Database* instance;
 
 	string db;

@@ -2,12 +2,21 @@
 #include <string>
 #include <iostream>
 #include <memory>
+#include<stdexcept>
+#include <new>
+
 using namespace std;
 
 Database* Database::instance = nullptr;
 
 Database::Database(const string& db, const string& un, const string& pw)
     : db(db), username(un), password(pw) {}
+
+Database::~Database() {
+    if (connected) {
+        disconnect();
+    }
+}
 
 // Creates and returns the instance of the Database
 Database* Database::getInstance(const string& new_db, const string& new_username, const string& new_password)
