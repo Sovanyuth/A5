@@ -94,7 +94,7 @@ void Database::printInformation()
 
 void* Database::operator new(size_t size)
 {
-    cout << "overloaded new " << endl;
+    cout << "overloaded new ";
     void* ptr = malloc(sizeof(size));
 
     if (!ptr) throw bad_alloc();
@@ -103,6 +103,6 @@ void* Database::operator new(size_t size)
 
 void Database::operator delete(void* ptr)
 {
-    cout << "overloaded delete " << endl;
+    cout << "overloaded delete ";
     free(ptr);
 }

@@ -15,7 +15,7 @@ private:
 	string db;
 	string username;
 	string password;
-	bool connected;
+	bool connected = false;
 
 public:
 	// Retrive the single instance of the object
