@@ -41,7 +41,7 @@ void Database::disconnect()
     instance->connected = false;
 }
 
-bool Database::status()
+bool Database::isConnected()
 {
     return instance->connected;
 }

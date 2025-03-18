@@ -15,7 +15,7 @@ private:
 	string db;
 	string username;
 	string password;
-	bool connected = false;
+	bool connected;
 
 public:
 	// Retrive the single instance of the object
@@ -28,7 +28,7 @@ public:
 
 	void disconnect();
 
-	bool status();
+	bool isConnected();
 
 	void set_username(const string& newUN);
 
