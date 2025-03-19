@@ -3,7 +3,6 @@
 #include <string>
 using namespace std;
 
-// Creating a class movie 
 class Database 
 {
 private:

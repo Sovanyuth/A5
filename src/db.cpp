@@ -4,16 +4,18 @@
 #include <memory>
 #include<stdexcept>
 #include <new>
-
 using namespace std;
 
+// Initializing the instance class to be nullptr 
 Database* Database::instance = nullptr;
 
+// Using initializer for the constructor
 Database::Database(const string& db, const string& un, const string& pw)
     : db(db), username(un), password(pw) {}
 
 Database::~Database() {
-    if (connected) {
+    if (connected) 
+    {
         disconnect();
     }
 }
@@ -37,6 +39,23 @@ Database* Database::getInstance(const string& new_db, const string& new_username
     }
 
     return instance;
+}
+
+// Using malloc to get the size needed to allocate the memory
+void* Database::operator new(size_t size)
+{
+    cout << "overloaded new ";
+    void* ptr = malloc(sizeof(size));
+
+    if (!ptr) throw bad_alloc();
+    return ptr;
+}
+
+// Delete is just "free" the memory
+void Database::operator delete(void* ptr)
+{
+    cout << "overloaded delete ";
+    free(ptr);
 }
 
 void Database::connect()
@@ -83,6 +102,7 @@ void Database::resetInstance()
     }
 }
 
+// Used only for debugging purposes
 void Database::printInformation() 
 {   
     cout << "Accessing the instance's information..." << endl;
@@ -98,19 +118,4 @@ void Database::printInformation()
     {
         cout << "Connection Status: true" << endl;
     }
-}
-
-void* Database::operator new(size_t size)
-{
-    cout << "overloaded new ";
-    void* ptr = malloc(sizeof(size));
-
-    if (!ptr) throw bad_alloc();
-    return ptr;
-}
-
-void Database::operator delete(void* ptr)
-{
-    cout << "overloaded delete ";
-    free(ptr);
 }
