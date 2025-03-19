@@ -78,7 +78,6 @@ void Database::resetInstance()
 {
     if (instance != nullptr)
     {
-        cout << "Instance has been resetted!" << endl;
         delete instance;
         instance = nullptr;
     }
