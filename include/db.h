@@ -7,7 +7,7 @@ class Database
 {
 private:
 	// Constructor needs to be private, to prevent object creation
-	Database(const string& db, const string& un, const string& pw, time_t last_activity);
+	Database(const string& db, const string& un, const string& pw);
 	time_t last_activity;
 	static const int TIMEOUT{ 5 };
 	static Database* instance;
@@ -20,7 +20,7 @@ private:
 public:
 	~Database();
 	// Retrive the single instance of the object
-	static Database* getInstance(const string& new_db, const string& new_username, const string& new_password, time_t last_activity);
+	static Database* getInstance(const string& new_db, const string& new_username, const string& new_password);
 	// To prevent copying and assignment since there is no need for this application
 	Database(const Database&);
 	Database& operator=(const Database&);
