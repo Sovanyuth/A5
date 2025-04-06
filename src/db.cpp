@@ -67,7 +67,7 @@ Database& Database::operator=(const Database&&)
 void* Database::operator new(size_t size)
 {
     cout << "overloaded new ";
-    void* ptr = malloc(sizeof(size));
+    void* ptr = malloc(size);
 
     if (!ptr) throw bad_alloc();
     return ptr;
