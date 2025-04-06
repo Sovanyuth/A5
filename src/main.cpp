@@ -15,11 +15,14 @@ int main()
 	string username2 = "johnHanvey";
 	string password2 = "alaska123";
 
+
+	time_t time;
+
 	try 
 	{
-		Database* dbInstance1 = Database::getInstance(database1, username1, password1);
+		Database* dbInstance1 = Database::getInstance(database1, username1, password1, time);
 		dbInstance1->printInformation();
-		Database* dbInstance2 = Database::getInstance(database2, username1, password1);
+		Database* dbInstance2 = Database::getInstance(database2, username1, password1, time);
 	}
 	catch (runtime_error& e) 
 	{
